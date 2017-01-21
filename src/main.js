@@ -25,6 +25,11 @@ import dialog from 'ng-dialog';
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 
+// config setups
+import http from './auth/http';
+import routes from './routes';
+import auth from './auth/auth';
+
 
 const app = angular.module('myApp', [
     components,
@@ -39,3 +44,8 @@ const app = angular.module('myApp', [
     dialog,
     satellizer
 ]);
+
+app.constant('apiUrl', process.env.API_URL || 'http://localhost:3000/api');
+app.config(routes);
+app.config(http);
+app.run(auth);
