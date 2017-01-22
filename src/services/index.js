@@ -1,5 +1,5 @@
 import angular from 'angular';
-import camcelcase from 'camelcase';
+import camelcase from 'camelcase';
 import path from 'path';
 
 const context = require.context(

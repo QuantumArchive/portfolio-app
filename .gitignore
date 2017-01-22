@@ -54,3 +54,4 @@ DS_Store
 .vscode
 .env
 .json
+build

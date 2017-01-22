@@ -4,7 +4,16 @@
   "description": "Front end app for Chris B. Portfolio",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "karma start --single-run",
+    "test:watch": "karma start",
+    "start": "webpack-dev-server --inline",
+    "build": "webpack",
+    "update-webdriver": "webdriver-manager update",
+    "pree2e": "babel test-e2e-src --out-dir test-e2e",
+    "e2e": "protractor",
+    "e2e-explore": "protractor --elementExplorer"
   },
   "repository": {
     "type": "git",
@@ -24,7 +33,6 @@
     "angular": "^1.6.1",
     "angular-animate": "^1.6.1",
     "angular-aria": "^1.6.1",
-    "angular-material": "^1.1.1",
     "angular-resource": "^1.6.0",
     "angular-ui-router": "^1.0.0-rc.1",
     "camelcase": "^4.0.0",
@@ -65,5 +73,10 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
