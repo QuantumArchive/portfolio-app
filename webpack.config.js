@@ -2,6 +2,7 @@ require('dotenv').load();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const cssExtract = new ExtractTextPlugin('main.css');
 
@@ -9,7 +10,8 @@ module.exports = {
     target: 'web',
     entry: './src/main.js',
     output: {
-        path: '../server/public',
+        path: './build',
+        // path: '../portfolio-server/public',
         filename: 'main.js'
     },
     devtool: 'source-map',
@@ -17,8 +19,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
-        new EnvironmentPlugin(['API-URL']),
         cssExtract,
+        new EnvironmentPlugin(['API_URL']),
         new CopyWebpackPlugin([{
             from: './src/img',
             to: 'img'
@@ -43,16 +45,16 @@ module.exports = {
             loader: cssExtract.extract(
                 'style-loader',
                 'css-loader'
-            )
+            )	
         }, {
             test: /\.scss$/,
             loader: cssExtract.extract(
                 'style-loader',
                 'css-loader?sourceMap!sass-loader?sourceMap'
-            )
+            )	
         }, {
             test: /\.html$/,
-            loader: 'html-loader'
+            loader: 'html-loader'	
         }]
     },
     sassLoader: {

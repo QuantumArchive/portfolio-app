@@ -8,8 +8,8 @@ import services from './services';
 import uiRouter from 'angular-ui-router';
 import defaultRoute from 'angular-ui-router-default';
 import satellizer from 'satellizer';
-import material from 'angular-material';
-import 'angular-material/angular-material.css';
+// import material from 'angular-material';
+// import 'angular-material/angular-material.css';
 import animate from 'angular-animate';
 import aria from 'angular-aria';
 
@@ -30,12 +30,11 @@ import http from './auth/http';
 import routes from './routes';
 import auth from './auth/auth';
 
-
 const app = angular.module('myApp', [
     components,
     services,
     animate,
-    material,
+    // material,
     aria,
     uiRouter,
     defaultRoute,
@@ -45,7 +44,8 @@ const app = angular.module('myApp', [
     satellizer
 ]);
 
-app.constant('apiUrl', process.env.API_URL || 'http://localhost:3000/api');
+// app.constant('apiUrl', process.env.API_URL || 'http://localhost:3000/api');
+app.constant('apiUrl', 'http://localhost:3000/api');
 app.config(routes);
 app.config(http);
 app.run(auth);
