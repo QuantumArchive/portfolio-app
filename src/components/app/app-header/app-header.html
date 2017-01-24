@@ -1,6 +1,26 @@
-<section>
+<section ng-class="$ctrl.styles.mainheader">
     <h1>A Fuse Slowly Burning</h1>
     <nav>
-        <a ui-sref="welcome" ui-sref-active="active">Welcome</a>
+        <a ui-sref="welcome" ui-sref-active="active">
+            <span>Welcome</span>
+        </a>
+        <a ui-sref="projects" ui-sref-active="active">
+            <span>Projects</span>
+        </a>
+        <a ui-sref="repos" ui-sref-active="active">
+            <span>Repos</span>
+        </a>
+        <a href="https://www.linkedin.com/in/chrbruner9" target="_blank">
+            <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/QuantumArchive" target="_blank">
+            <span>GitHub</span>
+        </a>
+        <a href="https://twitter.com/chrbruner9" target="_blank">
+            <span>Twitter</span>
+        </a>
+        <a ui-sref="about" ui-sref-active="active">
+            <span>About Me</span>
+        </a>
     </nav>
 </section>
