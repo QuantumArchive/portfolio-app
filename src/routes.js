@@ -39,6 +39,11 @@ export default function routes($stateProvider, $urlRouterProvider) {
         name: 'repos',
         url: '/repos',
         data: { public: true },
+        resolve: {
+            repos: ['repoService', repos => {
+                return repos.getAll();
+            }]
+        },
         views: {
             main: {
                 component: 'repos'
