@@ -1,0 +1,8 @@
+<section>
+    <div ng-repeat="object in $ctrl.repos">
+        <h2>{{object.name}}</h2>
+        <h3>Created: {{object.created_at.slice(0,10)}}</h3>
+        <h3>Updated: {{object.updated_at.slice(0,10)}}</h3>
+        <h3 ng-if="object.language">Primary Language: {{object.language}}</h3>
+    </div>
+</section>

@@ -3,6 +3,9 @@ import styles from './repos.scss';
 
 export default {
     template,
+    bindings: {
+        repos: '<'
+    },
     controller
 };
 
