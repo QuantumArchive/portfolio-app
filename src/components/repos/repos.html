@@ -1,6 +1,9 @@
 <section>
+    <div ng-if="$ctrl.loading">
+        <h2>LOADING...</h2>
+    </div>
     <div ng-repeat="object in $ctrl.repos">
-        <h2>{{object.name}}</h2>
+        <a href="{{object.html_url}}" target="_blank"><h2>{{object.name}}</h2></a>
         <h3>Created: {{object.created_at.slice(0,10)}}</h3>
         <h3>Updated: {{object.updated_at.slice(0,10)}}</h3>
         <h3 ng-if="object.language">Primary Language: {{object.language}}</h3>

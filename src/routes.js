@@ -39,11 +39,6 @@ export default function routes($stateProvider, $urlRouterProvider) {
         name: 'repos',
         url: '/repos',
         data: { public: true },
-        resolve: {
-            repos: ['repoService', repos => {
-                return repos.getAll();
-            }]
-        },
         views: {
             main: {
                 component: 'repos'
@@ -54,12 +49,26 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'about',
         url: '/about',
+        abstract: true,
+        default: '.me',
         data: { public: true },
         views: {
             main: {
                 component: 'about'
             }
         }
+    });
+
+    $stateProvider.state({
+        name: 'about.me',
+        url: '/me',
+        component: 'me'
+    });
+
+    $stateProvider.state({
+        name: 'about.history',
+        url: '/history',
+        component: 'history'
     });
     
     $urlRouterProvider.otherwise('/');
