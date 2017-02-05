@@ -1,0 +1,17 @@
+<section>
+    <div ng-if="$ctrl.loading">
+        <h2>LOADING...</h2>
+    </div>
+    <div ng-if="!$ctrl.loading" ng-repeat="object in $ctrl.projects">
+        <h2 data-category="{{object.category}}">{{object.title}}</h2>
+        <div>
+            <a href="{{object.link}}" target="_blank">
+                <img ng-src="{{object.image}}">
+            </a>
+            <h3>Author(s): {{object.author}}</h3>
+            <h4>Published On: {{object.publishedOn}}</h4>
+            <div ng-bind-html="$ctrl.trust(object.body)">
+            </div>
+        </div>
+    </div>
+</section>

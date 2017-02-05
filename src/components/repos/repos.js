@@ -9,6 +9,16 @@ export default {
     controller
 };
 
-function controller() {
+controller.$inject = ['repoService'];
+
+function controller(repoService) {
     this.styles = styles;
+    this.loading = true;
+    this.$onInit = () => {
+        repoService.getAll()
+            .then(data => {
+                this.repos = data;
+                this.loading = false;
+            });
+    };
 };

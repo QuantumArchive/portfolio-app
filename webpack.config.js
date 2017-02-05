@@ -22,8 +22,8 @@ module.exports = {
         cssExtract,
         new EnvironmentPlugin(['API_URL']),
         new CopyWebpackPlugin([{
-            from: './src/img',
-            to: 'img'
+            from: './src/images',
+            to: 'images'
         }])
     ],
     module: {
