@@ -9,9 +9,9 @@ export default {
     controller
 };
 
-controller.$inject = ['articleService', '$sce'];
+controller.$inject = ['articleService', '$sce', 'arrayToStringService'];
 
-function controller(articles, $sce) {
+function controller(articles, $sce, arrayToStrings) {
     this.styles = styles;
     this.loading = true;
     this.$onInit = () => {
@@ -24,5 +24,9 @@ function controller(articles, $sce) {
 
     this.trust = (value) => {
         return $sce.trustAsHtml(value);
+    };
+
+    this.stringify = (arrayOfStrings) => {
+        return arrayToStrings.convertArray(arrayOfStrings);
     };
 };
